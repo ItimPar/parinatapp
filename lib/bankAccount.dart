@@ -1,29 +1,61 @@
-class BankAccount {
-  String? _id, _name;
-  int? _accountType;
-  late double _balance;
+  // Class
+class bank {
+  // Field
+  //กำหนดตัวแปร
+  // late เพื่อสร้างตัวแปรแบบค่า NULL
+  late String _ID, _Name;
+  late int _AccountType;
+  late double _Balance;
+  late String _Bank;
 
-  BankAccount(String id, String name, int type, double amount) {
-    this._id = id;
-    this._name = name;
-    this._accountType = type;
-    this._balance = amount;
-  }
+  // Overloading Constructors
+  bank(String id, String n,int a, double b) {
+    this._ID = id;
+    this._Name = n;
+    setAccount(a);
 
-  void deposit(double amount) {
-    _balance = _balance + amount;
-  }
-
-  void withdraw(double amount) {
-    if (_balance - amount < 0) {
-      print("ยอดเงินไม่ถึง");
-    } else {
-      _balance = _balance - amount;
+    if(b == 0){
+      _Balance = 0;
+    }
+    else {
+      this._Balance = b;
     }
   }
 
-  double? checkBalace() => _balance;
-  String? bank_id() => _id;
-  String? bank_name() => _name;
-  int? bank_type() => _accountType;
+  // SET
+  void setAccount(int a) {
+    if(a == 0) {
+      _Name = "ไม่พบบัญฃี";
+      _Bank = "ไม่พบบัญฃี";
+      _Balance = 0;
+
+    }
+    else if(a == 1) {
+      _Bank = "ออมทรัพย์";
+    }
+    else if(a == 2) {
+      _Bank = "ลงทุน";
+    }
+  }
+
+  // GET
+  String getID() => _ID;
+  String getName() => _Name;
+  String getBank() => _Bank;
+  double getBalance()=> _Balance;
+
+  // Function
+  double interestM() {
+    double? it;
+    it = _Balance * 0.25;
+    return it;
+  }
+
+    double interestY() {
+    double? it;
+    double? itY;
+    it = _Balance * 0.25;
+    itY = it * 12;
+    return itY;
+  }
 }
