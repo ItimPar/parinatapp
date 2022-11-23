@@ -5,11 +5,10 @@ class Rectangle {
   String? _name;
 
 // Constructor
-  Rectangle(double h , double w) {
-    print("Over-Construct");
-    this._height = h;
-    this._width = w;
-    this._name = "John Dev";
+  Rectangle(double h, double w, String n) {
+    _height = h;
+    _width = w;
+    _name = n;
   }
 
 // Set Get
@@ -46,5 +45,13 @@ class Rectangle {
     double? area;
     area = _width * _height;
     return area;
+  }
+
+  void displayDetail() {
+    print("----------Class-Rectangle--------");
+    print("Name : ${getName()}");
+    print("Height : ${getHeigth()}");
+    print("Width : ${getWidth()}");
+    print("Compute : ${computeArea()} \n");
   }
 }

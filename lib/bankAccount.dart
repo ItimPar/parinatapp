@@ -1,8 +1,7 @@
   // Class
 class bank {
   // Field
-  //กำหนดตัวแปร
-  // late เพื่อสร้างตัวแปรแบบค่า NULL
+
   late String _ID, _Name;
   late int _AccountType;
   late double _Balance;
